@@ -400,13 +400,9 @@ if not options.solve:
         logger.info("  run LATER (when it is its turn)")
     exit(0)
 
-(cpu_busy, io_busy, clock_tick) = s.run()
+cpu_busy, io_busy, clock_tick = s.run()
 
 if options.print_stats:
-    logger.info("Stats: Total Time %d" % clock_tick)
-    logger.info(
-        "Stats: CPU Busy %d (%.2f%%)" % (cpu_busy, 100.0 * float(cpu_busy) / clock_tick)
-    )
-    logger.info(
-        "Stats: IO Busy  %d (%.2f%%)" % (io_busy, 100.0 * float(io_busy) / clock_tick)
-    )
+    logger.info(f"Stats: Total Time {clock_tick}")
+    logger.info(f"Stats: CPU Busy {cpu_busy} ({100.0 * float(cpu_busy) / clock_tick})")
+    logger.info(f"Stats: IO Busy  {io_busy} ({100.0 * float(io_busy) / clock_tick})")
